@@ -1,0 +1,16 @@
+'{$STAMP BS2p}
+'{$PBASIC 2.5}
+KEY       VAR     Byte
+Main:     DO
+            SERIN 3,2063,250,Timeout,[KEY]
+
+
+          LOOP
+Timeout:  GOSUB Motor_OFF
+          GOTO Main
+
+'+++++ Movement Procedure ++++++++++++++++++++++++++++++++
+
+
+Motor_OFF: LOW  13 : LOW 12 : LOW  15 : LOW 14 : RETURN
+'+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
